@@ -4,7 +4,7 @@
 
 API REST para la administración de productos de una librería, desarrollada como proyecto final del curso de Back End con Node.js.
 
-Permite consultar, crear y eliminar productos almacenados en Firestore, con una capa de autenticación mediante JWT que protege las operaciones de escritura.
+Permite consultar, crear, actualizar y eliminar productos almacenados en Firestore, con una capa de autenticación mediante JWT que protege las operaciones de escritura.
 
 ## Tecnologías
 
@@ -115,10 +115,19 @@ El token tiene una validez de 1 hora.
   "longDescription": "Reseña del libro."
 }
 ```
+**Body para actualizar un producto:**
+
+Acepta actualizaciones parciales: solo se modifican los campos enviados.
+
+```json
+{
+  "price": 32000
+}
+```
 
 ### Rutas protegidas
 
-Las operaciones de creación y eliminación requieren un token válido de un usuario con rol `admin`, enviado en el header:
+Las operaciones de creación, actualización y eliminación requieren un token válido de un usuario con rol `admin`, enviado en el header:
 
 ```
 Authorization: Bearer <token>
