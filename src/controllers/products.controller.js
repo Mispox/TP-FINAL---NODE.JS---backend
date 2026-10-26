@@ -35,3 +35,11 @@ export const deleteProduct = async (req, res) => {
     res.status(error.status || 500).json({ error: error.message });
   }
 };
+export const updateProduct = async (req, res) => {
+  try {
+    const actualizado = await productsService.updateProduct(req.params.id, req.body);
+    res.json(actualizado);
+  } catch (error) {
+    res.status(error.status || 500).json({ error: error.message });
+  }
+};
