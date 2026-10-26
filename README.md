@@ -114,6 +114,7 @@ El token tiene una validez de 1 hora.
   "image": "/img/portada.jpg",
   "longDescription": "Reseña del libro."
 }
+
 ```
 **Body para actualizar un producto:**
 
