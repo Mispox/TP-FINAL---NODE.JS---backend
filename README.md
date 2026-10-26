@@ -1,5 +1,7 @@
 # TP Final - API REST Node.js - Talento Tech
 
+**API desplegada:** https://tp-final-nodejs-backend.onrender.com
+
 API REST para la administración de productos de una librería, desarrollada como proyecto final del curso de Back End con Node.js.
 
 Permite consultar, crear y eliminar productos almacenados en Firestore, con una capa de autenticación mediante JWT que protege las operaciones de escritura.
@@ -98,6 +100,7 @@ El token tiene una validez de 1 hora.
 | GET | `/api/products` | Público | Devuelve todos los productos |
 | GET | `/api/products/:id` | Público | Devuelve un producto por ID |
 | POST | `/api/products/create` | Admin | Crea un nuevo producto |
+| PUT | `/api/products/:id` | Admin | Actualiza un producto existente |
 | DELETE | `/api/products/:id` | Admin | Elimina un producto |
 
 **Body para crear un producto:**
