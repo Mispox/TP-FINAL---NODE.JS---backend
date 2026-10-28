@@ -2,7 +2,7 @@
 
 **API desplegada:** https://tp-final-nodejs-backend.onrender.com
 
-API REST para la administración de productos de una librería, desarrollada como proyecto final del curso de Back End con Node.js.
+API REST para la administración de productos de una librería, que emulé para el proyecto final del curso de React,js https://bathory.vercel.app/. esta API está desarrollada como proyecto final del curso de Back End con Node.js.
 
 Permite consultar, crear, actualizar y eliminar productos almacenados en Firestore, con una capa de autenticación mediante JWT que protege las operaciones de escritura.
 
