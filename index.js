@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import productsRoutes from "./src/routes/products.routes.js";
 import authRoutes from "./src/routes/auth.routes.js";
@@ -11,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({ mensaje: "API de Bathory Books funcionando" });
