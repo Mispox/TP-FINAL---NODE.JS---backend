@@ -1,8 +1,10 @@
 # TP Final - API REST Node.js - Talento Tech
 
-API REST para la administración de productos de una librería, desarrollada como proyecto final del curso de Back End con Node.js.
+**API desplegada:** https://tp-final-nodejs-backend.onrender.com
 
-Permite consultar, crear y eliminar productos almacenados en Firestore, con una capa de autenticación mediante JWT que protege las operaciones de escritura.
+API REST para la administración de productos de una librería, que emulé para el proyecto final del curso de React,js https://bathory.vercel.app/. esta API está desarrollada como proyecto final del curso de Back End con Node.js.
+
+Permite consultar, crear, actualizar y eliminar productos almacenados en Firestore, con una capa de autenticación mediante JWT que protege las operaciones de escritura.
 
 ## Tecnologías
 
@@ -98,6 +100,7 @@ El token tiene una validez de 1 hora.
 | GET | `/api/products` | Público | Devuelve todos los productos |
 | GET | `/api/products/:id` | Público | Devuelve un producto por ID |
 | POST | `/api/products/create` | Admin | Crea un nuevo producto |
+| PUT | `/api/products/:id` | Admin | Actualiza un producto existente |
 | DELETE | `/api/products/:id` | Admin | Elimina un producto |
 
 **Body para crear un producto:**
@@ -111,11 +114,21 @@ El token tiene una validez de 1 hora.
   "image": "/img/portada.jpg",
   "longDescription": "Reseña del libro."
 }
+
+```
+**Body para actualizar un producto:**
+
+Acepta actualizaciones parciales: solo se modifican los campos enviados.
+
+```json
+{
+  "price": 32000
+}
 ```
 
 ### Rutas protegidas
 
-Las operaciones de creación y eliminación requieren un token válido de un usuario con rol `admin`, enviado en el header:
+Las operaciones de creación, actualización y eliminación requieren un token válido de un usuario con rol `admin`, enviado en el header:
 
 ```
 Authorization: Bearer <token>
