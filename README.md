@@ -12,7 +12,7 @@ Permite consultar, crear, actualizar y eliminar productos almacenados en Firesto
 - Firebase / Firestore (base de datos en la nube)
 - Firebase Authentication (validación de credenciales)
 - JSON Web Tokens (jsonwebtoken)
-- dotenv, cors, body-parser
+- dotenv, cors
 
 ## Arquitectura
 
