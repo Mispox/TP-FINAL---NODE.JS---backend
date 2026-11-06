@@ -1,5 +1,13 @@
 import * as productsModel from "../models/products.model.js";
 
+const validarTexto = (valor, campo) => {
+  if (typeof valor !== "string" || valor.trim() === "") {
+    const error = new Error(`El campo ${campo} debe ser un texto no vacío`);
+    error.status = 400;
+    throw error;
+  }
+};
+
 export const getAll = async () => {
   return await productsModel.findAll();
 };
@@ -17,11 +25,14 @@ export const getById = async (id) => {
 export const createProduct = async (data) => {
   const { name, price, category } = data;
 
-  if (!name || price === undefined || !category) {
+  if (name === undefined || price === undefined || category === undefined) {
     const error = new Error("Faltan campos obligatorios: name, price, category");
     error.status = 400;
     throw error;
   }
+
+  validarTexto(name, "name");
+  validarTexto(category, "category");
 
   if (typeof price !== "number" || price < 0) {
     const error = new Error("El precio debe ser un número positivo");
@@ -44,6 +55,14 @@ export const updateProduct = async (id, data) => {
     const error = new Error("No se enviaron campos para actualizar");
     error.status = 400;
     throw error;
+  }
+
+  if (data.name !== undefined) {
+    validarTexto(data.name, "name");
+  }
+
+  if (data.category !== undefined) {
+    validarTexto(data.category, "category");
   }
 
   if (data.price !== undefined && (typeof data.price !== "number" || data.price < 0)) {
